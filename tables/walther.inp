@@ -1,0 +1,22 @@
+ELEMENTS
+H N O
+END
+SPECIES
+O2 O OH H2 H H2O HO2 H2O2 N2
+END
+REACTIONS
+  O2+H2<=>2OH              1.00E+13  0.00   43000
+  O+H+M<=>OH+M             5.01E+18 -1.00       0
+  N2/1.0
+ OH+H+M<=>H2O+M            1.26E+23 -2.00       0
+  N2/1.0
+   O2+H<=>OH+O             2.00E+14  0.00   16800
+   O+H2<=>OH+H             7.95E+13  0.00   11100
+  OH+H2<=>H+H2O            2.00E+13  0.00    5200
+ O2+H+M<=>HO2+M            2.51E+15  0.0     -800
+   N2/1.0
+    HO2<=>O2+H2O2          2.00E+12  0.0        0
+  H+HO2<=>2OH              2.51E+14  0.0     1900
+ H2O2+M<=>2OH+M            1.26E+17  0.0    45500
+   N2/1.0
+END

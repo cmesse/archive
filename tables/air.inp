@@ -1,0 +1,22 @@
+!
+! air.inp
+!
+! This table lists the gasses that need to be loaded from the NASA CEA
+! database. The numbers denote molar fraction (chi)
+! of the standard atmosphere.
+! 
+! See also U.S. Standard Atmosphere 1976
+Ar     9.3400E-03
+CH4    2.0000E-06
+CO     2.5000E-07
+CO2    3.1400E-04
+H2     5.0000E-07
+He     5.2400E-06
+Kr     1.1400E-06
+N2     7.8084E-01
+N2O    3.1000E-07
+Ne     1.8180E-05
+NO2    2.0000E-08
+O2     2.09476E-01
+O3     8.0000E-06
+Xe     8.7000E-08

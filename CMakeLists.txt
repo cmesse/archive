@@ -1,0 +1,6 @@
+ add_subdirectory( satellite )
+ if( USE_GASMODELS )
+     add_subdirectory( boundarylayer )
+     add_subdirectory( combustion )
+     add_subdirectory( engine )
+ endif ()

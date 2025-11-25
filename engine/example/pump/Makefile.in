@@ -1,0 +1,49 @@
+# the name of the user library
+LIBNAME=@LIBNAME@
+
+# the path to the source file
+SOURCE=@SOURCE@
+
+SUFFIX=@SUFFIX@
+
+# flags to be passed to c++
+CXXFLAGS = @CXXFLAGS@
+
+# how TARES is configured
+DFLAGS = @DFLAGS@
+
+# where the main source is
+SRCDIR=@SRCDIR@
+
+# where the libraries are
+LIBDIR=@LIBDIR@
+
+# add the relavant include directories
+INCLUDE = -I$(TPLS)/include \
+          -I$(SRCDIR)/src/core \
+          -I$(SRCDIR)/src/comm \
+          -I$(SRCDIR)/src/containers \
+          -I$(SRCDIR)/src/io \
+          -I$(SRCDIR)/src/linalg \
+          -I$(SRCDIR)/src/linalg/operators \
+          -I$(SRCDIR)/src/linalg/armadillo \
+          -I$(SRCDIR)/src/math/graph \
+          -I$(SRCDIR)/src/sparse \
+          -I$(SRCDIR)/src/mesh \
+          -I$(SRCDIR)/src/math/tools \
+          -I$(SRCDIR)/src/numerics/spline \
+          -I$(SRCDIR)/src/physics \
+          -I$(SRCDIR)/src/physics/gastables \
+          -I$(SRCDIR)/src/physics/gasmodels \
+          -I$(SRCDIR)/src/physics/combustion \
+          -I$(SRCDIR)/src/models/engine
+
+# the build script
+all: $(LIBNAME).$(SUFFIX)
+	
+$(LIBNAME).$(SUFFIX) : $(SOURCE)
+	$(CXX) $(CXXFLAGS) $(DFLAGS) $(INCLUDE) -shared $< -o $(LIBNAME).$(SUFFIX)
+	
+clean:
+	rm -v $(LIBNAME).$(SUFFIX)
+

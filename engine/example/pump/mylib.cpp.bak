@@ -1,0 +1,196 @@
+//
+// Created by Christian Messe on 29.04.21.
+//
+
+#include "cl_EN_PumpUserLibrary.hpp"
+#include "cl_EN_Pump.hpp"
+
+using namespace tares ;
+using namespace engine ;
+
+//------------------------------------------------------------------------------
+
+        void
+        fuelpump1( Pump & aPump )
+        {
+            // entry conditions T in K and p in Pa  (required)
+            aPump.set_entry( 111.0, 3.8e5 );
+
+            // mass flux in kg/s (required)
+            aPump.set_mass_flux( 21.32 );
+
+            // require one of these two:
+            // set pressure rise in Pa
+            //aPump.set_deltap( 117e5 ); // 77e5
+            // or: set exit pressure in bar
+            aPump.set_pt2( 112.5e5 );
+
+            // set shaft speed  (required)
+            aPump.set_nrpm( 30000  );
+
+            // set blade thickness (required)
+            aPump.set_s2( 5e-3 );
+
+            // hub diameter (required)
+            aPump.set_DN( 0.037 ) ;
+
+            // set entry diameter (optional)
+            //aPump.set_D1a( 0.113 );
+
+            // optionally one of these two:
+            // discharge diamter
+            //aPump.set_D2a( 0.200 );
+            // or: pressure parameter
+            aPump.set_psi( 0.6 );
+
+            // require one of these two
+            // set discharge angle in deg
+            // aPump.set_beta2( 20.0 );
+            // or: prescribe the ratio of w2/w1
+            aPump.set_haller( 0.65 );
+
+            // set number of blades for inducer (optional)
+            // aPump.set_z1( 4 );
+
+            // set number of blades for impeller (optional)
+            // aPump.set_z2( 8 );
+        }
+
+    void
+    oxpump1( Pump & aPump )
+    {
+        // entry conditions T in K and p in Pa  (required)
+        aPump.set_entry( 93.0, 3.89e5 );
+
+        // mass flux in kg/s (required)
+        aPump.set_mass_flux( 62.75 );
+
+        // require one of these two:
+        // set pressure rise in Pa
+        //aPump.set_deltap( 117e5 ); // 77e5
+        // or: set exit pressure in bar
+        aPump.set_pt2( 112.5e5 );
+
+        // set shaft speed  (required)
+        aPump.set_nrpm( 30000 );
+
+        // set blade thickness (required)
+        aPump.set_s2( 5e-3 );
+
+        // hub diameter (required)
+        aPump.set_DN( 0.037 ) ;
+
+        // set entry diameter (optional)
+        //aPump.set_D1a( 0.113 );
+
+        // optionally one of these two:
+        // discharge diamter
+        //aPump.set_D2a( 0.200 );
+        // or: pressure parameter
+        aPump.set_psi( 0.35 );
+
+        // require one of these two
+        // set discharge angle in deg
+        // aPump.set_beta2( 20.0 );
+        // or: prescribe the ratio of w2/w1
+        aPump.set_haller( 0.65 );
+
+        // set number of blades for inducer (optional)
+        // aPump.set_z1( 4 );
+
+        // set number of blades for impeller (optional)
+        // aPump.set_z2( 8 );
+    }
+    
+    	void
+        fuelpump2( Pump & aPump )
+        {
+            // entry conditions T in K and p in Pa  (required)
+            aPump.set_entry( 111.0, 3.6e5 );
+
+            // mass flux in kg/s (required)
+            aPump.set_mass_flux( 6.51 );
+
+            // require one of these two:
+            // set pressure rise in Pa
+            //aPump.set_deltap( 117e5 ); // 77e5
+            // or: set exit pressure in bar
+            aPump.set_pt2( 112.5e5 );
+
+            // set shaft speed  (required)
+            aPump.set_nrpm( 50000 );
+
+            // set blade thickness (required)
+            aPump.set_s2( 3e-3 );
+
+            // hub diameter (required)
+            aPump.set_DN( 0.023 ) ;
+
+            // set entry diameter (optional)
+            //aPump.set_D1a( 0.113 );
+
+            // optionally one of these two:
+            // discharge diamter
+            //aPump.set_D2a( 0.200 );
+            // or: pressure parameter
+            aPump.set_psi( 0.6 );
+
+            // require one of these two
+            // set discharge angle in deg
+            // aPump.set_beta2( 20.0 );
+            // or: prescribe the ratio of w2/w1
+            aPump.set_haller( 0.65 );
+
+            // set number of blades for inducer (optional)
+            // aPump.set_z1( 4 );
+
+            // set number of blades for impeller (optional)
+            // aPump.set_z2( 8 );
+        }
+
+    void
+    oxpump2( Pump & aPump )
+    {
+        // entry conditions T in K and p in Pa  (required)
+        aPump.set_entry( 93.0, 3.92e5 );
+
+        // mass flux in kg/s (required)
+        aPump.set_mass_flux( 22.17 );
+
+        // require one of these two:
+        // set pressure rise in Pa
+        //aPump.set_deltap( 117e5 ); // 77e5
+        // or: set exit pressure in bar
+        aPump.set_pt2( 112.5e5 );
+
+        // set shaft speed  (required)
+        aPump.set_nrpm( 50000 );
+
+        // set blade thickness (required)
+        aPump.set_s2( 3e-3 );
+
+        // hub diameter (required)
+        aPump.set_DN( 0.023 ) ;
+
+        // set entry diameter (optional)
+        //aPump.set_D1a( 0.113 );
+
+        // optionally one of these two:
+        // discharge diamter
+        //aPump.set_D2a( 0.200 );
+        // or: pressure parameter
+        aPump.set_psi( 0.35 );
+
+        // require one of these two
+        // set discharge angle in deg
+        // aPump.set_beta2( 20.0 );
+        // or: prescribe the ratio of w2/w1
+        aPump.set_haller( 0.65 );
+
+        // set number of blades for inducer (optional)
+        // aPump.set_z1( 4 );
+
+        // set number of blades for impeller (optional)
+        // aPump.set_z2( 8 );
+    }
+    
