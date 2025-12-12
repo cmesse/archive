@@ -15,7 +15,7 @@ namespace belfem
 {
     class MantaTables
     {
-        const proc_t mRank;
+        const proc_t mCommRank;
         const proc_t mCommSize ;
 
         Mesh &mMesh;

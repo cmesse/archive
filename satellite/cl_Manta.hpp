@@ -16,7 +16,7 @@ namespace belfem
 
     class Manta
     {
-        const proc_t  mRank ;
+        const proc_t  mCommRank ;
         Mesh     * mMesh = nullptr ;
 
         public:

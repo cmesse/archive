@@ -708,7 +708,7 @@ namespace belfem
         void
         Mapper::create_jacobian()
         {
-            mJacobian = new SpMatrix( reinterpret_cast< Cell< graph::Vertex * > & >( mBasis ) );
+            mJacobian = new SpMatrix( reinterpret_cast< Graph& >( mBasis ) );
 
             // convert pointer to ref
             SpMatrix & tM = *mJacobian ;

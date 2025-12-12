@@ -14,7 +14,7 @@ namespace belfem
 
 
     Manta::Manta() :
-        mRank( comm_rank() )
+        mCommRank( comm_rank() )
     {
 
     }

@@ -18,13 +18,13 @@ namespace belfem
 
 
     MantaTables::MantaTables( Mesh  & aMesh ) :
-            mRank( comm_rank()) ,
+            mCommRank( comm_rank()) ,
             mCommSize( comm_size() ),
             mMesh( aMesh )
     {
         mSolver = new Solver( SolverType::MUMPS ) ;
 
-        if ( mRank == 0 )
+        if ( mCommRank == 0 )
         {
             mMesh.create_field( "Infrared", EntityType::ELEMENT ) ;
             mMesh.create_field( "Visible", EntityType::ELEMENT ) ;
@@ -58,7 +58,7 @@ namespace belfem
     void
     MantaTables::interpolate_geometry_info( const real aTime )
     {
-        if ( mRank == 0 )
+        if ( mCommRank == 0 )
         {
             index_t a ;
             index_t b ;
@@ -134,7 +134,7 @@ namespace belfem
     void
     MantaTables::solve_infrared( const real aTime )
     {
-        if( mRank == 0 )
+        if( mCommRank == 0 )
         {
             // obtain the factors
             index_t n = mSurfaces.size() ;
@@ -191,7 +191,7 @@ namespace belfem
 
         mSolver->solve( *mRadiationMatrix, mRadiationLHS, mRadiationRHS );
 
-        if( mRank == 0 )
+        if( mCommRank == 0 )
         {
             Vector< real > & tQ = mMesh.field_data( "Infrared" );
 
@@ -213,7 +213,7 @@ namespace belfem
     void
     MantaTables::solve_solar( const real aTime )
       {
-        if( mRank == 0 )
+        if( mCommRank == 0 )
         {
             for( MantaSurface * tSurface : mSurfaces )
             {
@@ -273,7 +273,7 @@ namespace belfem
 
         mSolver->solve( *mRadiationMatrix, mRadiationLHS, mRadiationRHS );
 
-        if( mRank == 0 )
+        if( mCommRank == 0 )
         {
             Vector< real > & tQ = mMesh.field_data( "Visible" );
 
@@ -293,7 +293,7 @@ namespace belfem
     void
     MantaTables::load_database( const string & aPath )
     {
-        if ( mRank == 0 )
+        if ( mCommRank == 0 )
         {
             HDF5 tDatabase( aPath, FileMode::OPEN_RDONLY );
 
@@ -559,7 +559,7 @@ namespace belfem
             }
 
             // create the graph
-            Cell< graph::Vertex * > tGraph( tCount, nullptr );
+            Graph tGraph( tCount, nullptr );
             for ( index_t i=0; i < tCount; ++i )
             {
                 Vector< index_t > & tTarget = tTargets( i );
@@ -673,14 +673,14 @@ namespace belfem
     void
     MantaTables::create_communication_table()
     {
-        if( mRank == 0 && mCommSize > 1 )
+        if( mCommRank == 0 && mCommSize > 1 )
         {
             // create communication list
             uint c = 0 ;
             mCommTable.set_size( mCommSize-1 );
-            for( proc_t k=0; k<mRank; ++k )
+            for( proc_t k=0; k<mCommRank; ++k )
             {
-                if( k != mRank )
+                if( k != mCommRank )
                 {
                     mCommTable( c++ ) = k ;
                 }
